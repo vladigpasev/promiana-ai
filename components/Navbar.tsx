@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import React from 'react'
 
 function Navbar() {
@@ -11,7 +12,7 @@ function Navbar() {
           <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
             <li><a>Изкуствен интелект</a></li>
             <li><a>Прогнози</a></li>
-            <li><a>Статии</a></li>
+            <li><Link href="/posts">Статии</Link></li>
             <li><a>Общност</a></li>
           </ul>
         </div>
@@ -21,7 +22,7 @@ function Navbar() {
         <ul className="menu menu-horizontal px-1">
           <li><a>Изкуствен интелект</a></li>
           <li><a>Прогнози</a></li>
-          <li><a>Статии</a></li>
+          <li><Link href="/posts">Статии</Link></li>
           <li><a>Общност</a></li>
         </ul>
       </div>
