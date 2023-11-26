@@ -20,7 +20,7 @@ function Footer() {
                 </nav>
                 <nav>
                     <header className="footer-title">Документи</header>
-                    <Link href="/terms-of-use" className="link link-hover">Условия за използване</Link>
+                    <Link href="/terms-of-use" className="link link-hover">Условия за ползване</Link>
                     <Link href="/privacy-policy" className="link link-hover">Политика за поверителност</Link>
                     <Link href="/cookies-policy" className="link link-hover">Политика за бисквитки</Link>
                 </nav>
