@@ -10,25 +10,6 @@ const supabaseServiceRoleKey = process.env.SUPABASE_SERVICE_ROLE_KEY;
 const supabase = createClient(supabaseUrl, supabaseServiceRoleKey);
 
 
-// Function to get all posts
-export async function getAllPosts() {
-    try {
-        const { data, error } = await supabase
-            .from('posts')
-            .select('id, title, short_description, author, tags'); // Selects all columns from the 'posts' table
-
-        if (error) {
-            throw error;
-        }
-        console.log(data);
-        return { success: true, posts: data };
-    } catch (error) {
-        console.error("Error fetching posts: ", error);
-        //@ts-ignore
-        return { success: false, error: error.message };
-    }
-}
-
 export async function createPost(prevState: any, formData: FormData) {
     const postSchema = z.object({
         postTitle: z.string().nonempty(),
@@ -71,31 +52,9 @@ export async function createPost(prevState: any, formData: FormData) {
         }
 
         console.log("Post created:", data);
-        return { success: true, group: data };
-    } catch (error) {
-        console.error("Post creation error: ", error);
-        //@ts-ignore
-        return { success: false, error: error.message };
-    }
-}
-
-// Във вашата сървърна част (примерно в същия файл)
-//@ts-ignore
-export async function getPostById(postId) {
-    try {
-        const { data, error } = await supabase
-            .from('posts')
-            .select('*')
-            .eq('id', postId)
-            .single();
-
-        if (error) {
-            throw error;
-        }
-
         return { success: true, post: data };
     } catch (error) {
-        console.error("Error fetching post: ", error);
+        console.error("Post creation error: ", error);
         //@ts-ignore
         return { success: false, error: error.message };
     }
