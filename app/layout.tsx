@@ -22,7 +22,7 @@ export default function RootLayout({
     <html lang="bg">
       <body className={inter.className}>
         <Script async src="https://www.googletagmanager.com/gtag/js?id=G-WW0MLMRH6M"></Script>
-        <Script>
+        <Script id="google-analytics">
           {`
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
