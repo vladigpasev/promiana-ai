@@ -3,6 +3,7 @@ import supabase from '../../../../utils/supabase'
 import { notFound } from 'next/navigation'
 
 import type { Metadata, ResolvingMetadata } from 'next'
+import Image from 'next/image';
 
 export const revalidate = 3600;
 
@@ -11,7 +12,7 @@ type Props = {
     searchParams: { [key: string]: string | string[] | undefined }
 }
 
-async function getPostById(id:any) {
+async function getPostById(id: any) {
     const { data: post } = await supabase.from('posts').select('*').eq('id', id).single();
     return post;
 }
@@ -24,22 +25,36 @@ export async function generateMetadata(
     const id = params.id;
     const post = await getPostById(id);
     if (!post) {
-       //@ts-ignore
-       return (await parent); // Fallback to parent metadata
-   }
-    
+        //@ts-ignore
+        return (await parent); // Fallback to parent metadata
+    }
+
     // Format the tags for metadata
     //@ts-ignore
     const formattedTags = post.tags.split(',').map(tag => `#${tag.trim()}`).join(', ');
 
     // Construct and return the metadata
-    return {
-        title: `${post.title} | Промяна AI`,
-        description: post.short_description,
-        keywords: formattedTags,
-        alternates: {
-            canonical: `https://promiana-ai.com/posts/${post.id}`,
-        },
+    if (post.post_image) {
+        return {
+            title: `${post.title} | Промяна AI`,
+            description: post.short_description,
+            keywords: formattedTags,
+            alternates: {
+                canonical: `https://promiana-ai.com/posts/${post.id}`,
+            },
+            openGraph: {
+                images: `${post.post_image}`
+            }
+        }
+    } else {
+        return {
+            title: `${post.title} | Промяна AI`,
+            description: post.short_description,
+            keywords: formattedTags,
+            alternates: {
+                canonical: `https://promiana-ai.com/posts/${post.id}`,
+            },
+        }
     }
 }
 
@@ -67,6 +82,11 @@ async function Post({ params }: { params: { id: string } }) {
                     <p className="text-gray-700 mb-4">---</p>
                     <div className="prose max-w-none mb-4" dangerouslySetInnerHTML={{ __html: post.post_text }}></div>
                     <p className="text-gray-700 mb-4">---</p>
+                    {post.post_image && (
+                        <div className="flex justify-center my-10">
+                            <img src={post.post_image} alt={`${post.title} снимка`} className="max-w-full h-auto rounded-lg shadow-lg" />
+                        </div>
+                    )}
                     <div className="flex items-center mb-4">
                         <svg className="h-6 w-6 fill-current text-gray-500 mr-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z" /></svg>
                         <span className="text-gray-600 text-sm">{post.author}</span>

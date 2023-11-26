@@ -1,6 +1,5 @@
 import Features from '@/components/Features'
-import Hero from '@/components/Home/Hero'
-import Stats from '@/components/Home/Stats'
+import Hero from '@/components/Hero'
 import React from 'react'
 
 function Home() {
@@ -8,7 +7,6 @@ function Home() {
     <div>
       <Hero />
       <Features />
-      <Stats />
     </div>
   )
 }
