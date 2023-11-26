@@ -16,7 +16,8 @@ function NewPost() {
         shortDescription: '',
         postText: '',
         authorName: '',
-        postTags: ''
+        postTags: '',
+        postImage: '',
     });
 
     const initialState = {
@@ -58,8 +59,6 @@ function NewPost() {
         setFormData({ ...formData, postText: value });
     };
 
-
-
     const handleCancel = () => {
         // Изчистване на формата и localStorage
         setFormData({
@@ -67,7 +66,8 @@ function NewPost() {
             shortDescription: '',
             postText: '',
             authorName: '',
-            postTags: ''
+            postTags: '',
+            postImage: '',
         });
         localStorage.removeItem('newPost');
     };
@@ -135,7 +135,20 @@ function NewPost() {
                             value={formData.postText}
                         />
                     </div>
-
+                    <div className="mb-6">
+                        <label htmlFor="postImage" className="block text-lg font-medium text-gray-700">
+                            Снимка на статия (линк) - препоръчва се хоризонтална снимка
+                        </label>
+                        <input
+                            type="text"
+                            id="postImage"
+                            name="postImage"
+                            onChange={handleChange}
+                            value={formData.postImage}
+                            placeholder='https://google.com/images'
+                            className="mt-1 block w-full px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary"
+                        />
+                    </div>
 
                     <div className="mb-6">
                         <label htmlFor="authorName" className="block text-lg font-medium text-gray-700">

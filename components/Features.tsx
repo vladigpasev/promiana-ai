@@ -1,24 +1,24 @@
 
 const features = [
   {
-    name: 'Push to deploy',
+    name: 'Много лесно и интуитивно',
     description:
-      'Morbi viverra dui mi arcu sed. Tellus semper adipiscing suspendisse semper morbi. Odio urna massa nunc massa.',
+      'Времето е най-ценният ресурс. Разгледайте статтите и създайте своя собствена само с един клик, без акаунт.',
   },
   {
-    name: 'SSL certificates',
+    name: 'Проверена информация',
     description:
-      'Sit quis amet rutrum tellus ullamcorper ultricies libero dolor eget. Sem sodales gravida quam turpis enim lacus amet.',
+      'С помощта на ботове и нашият екип от експерти, който постоянно проверява информацията, можете да сте уверени в достоверността ѝ.',
   },
   {
-    name: 'Simple queues',
+    name: 'Поддръжка 24 часа',
     description:
-      'Quisque est vel vulputate cursus. Risus proin diam nunc commodo. Lobortis auctor congue commodo diam neque.',
+      'Свържете се с нас по всяко време на денонощието и ние ще бъдем готови да ви помогнем с всякакви технически въпроси или доклади по статиите.',
   },
   {
-    name: 'Advanced security',
+    name: 'Напълно безплатно',
     description:
-      'Arcu egestas dolor vel iaculis in ipsum mauris. Tincidunt mattis aliquet hac quis. Id hac maecenas ac donec pharetra eget.',
+      'Нашата платформа е напълно безплатна за всички потребители, можете да създавате и разглеждате статии само с един клик.',
   },
 ]
 
@@ -32,8 +32,7 @@ export default function Features() {
             Каква е нашата цел?
           </p>
           <p className="mt-6 text-lg leading-8 text-gray-600">
-            Quis tellus eget adipiscing convallis sit sit eget aliquet quis. Suspendisse eget egestas a elementum
-            pulvinar et feugiat blandit at. In mi viverra elit nunc.
+            Досега в България няма друга платформа за последни новини, свързани с технологичното развитие. С помощта на нашата платформа, можете да бъдете в течение с най-новите иновации.
           </p>
         </div>
         <div className="mx-auto mt-16 max-w-2xl sm:mt-20 lg:mt-24 lg:max-w-4xl">
@@ -41,8 +40,8 @@ export default function Features() {
             {features.map((feature) => (
               <div key={feature.name} className="relative pl-16">
                 <dt className="text-base font-semibold leading-7 text-gray-900">
-                  <div className="absolute left-0 top-0 flex h-10 w-10 items-center justify-center rounded-lg bg-primary">
-                    {/* <feature.icon className="h-6 w-6 text-white" aria-hidden="true" /> */}
+                  <div className="absolute left-0 top-0 flex h-10 w-10 items-center justify-center rounded-lg bg-primary p-2">
+                  <svg fill="#ffffff" height="64px" width="64px" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 490 490"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <polygon points="452.253,28.326 197.831,394.674 29.044,256.875 0,292.469 207.253,461.674 490,54.528 "></polygon> </g></svg>
                   </div>
                   {feature.name}
                 </dt>

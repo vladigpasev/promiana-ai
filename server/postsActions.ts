@@ -17,6 +17,7 @@ export async function createPost(prevState: any, formData: FormData) {
         postText: z.string().nonempty(),
         authorName: z.string().nonempty(),
         postTags: z.string().nonempty(),
+        postImage: z.string(),
     });
 
     let postData;
@@ -27,6 +28,7 @@ export async function createPost(prevState: any, formData: FormData) {
             postText: formData.get("postText"),
             authorName: formData.get("authorName"),
             postTags: formData.get("postTags"),
+            postImage: formData.get("postImage"),
             // Parse other fields as needed
         });
     } catch (error) {
@@ -44,6 +46,7 @@ export async function createPost(prevState: any, formData: FormData) {
                 post_text: postData.postText,
                 author: postData.authorName, 
                 tags: postData.postTags, 
+                post_image: postData.postImage,
                 // Include other fields as needed
             }]);
 

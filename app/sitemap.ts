@@ -17,8 +17,11 @@ export default async function sitemap() {
         };
     }) ?? [];
 
-    const lastUpdatedHomepage = new Date('2023-11-24T09:58:29'); // Задайте датата и часа на последното обновление
-    const lastUpdatedNewPostPage = new Date('2023-11-26T13:58:20'); // Задайте датата и часа на последното обновление
+    const lastUpdatedHomepage = new Date('2023-11-26T20:31:29'); // Задайте датата и часа на последното обновление
+    const lastUpdatedNewPostPage = new Date('2023-11-26T20:31:29'); // Задайте датата и часа на последното обновление
+    const lastUpdatedTerms = new Date('2023-11-26T20:31:29'); // Modify as needed
+    const lastUpdatedPrivacy = new Date('2023-11-26T20:31:29'); // Modify as needed
+    const lastUpdatedCookies = new Date('2023-11-26T20:31:29'); // Modify as needed
 
     return [
         {
@@ -36,6 +39,24 @@ export default async function sitemap() {
         {
             url: baseUrl + '/posts/new',
             lastModified: lastUpdatedNewPostPage,
+            changeFrequency: 'yearly',
+            priority: 0.3,
+        },
+        {
+            url: baseUrl + '/terms-of-use',
+            lastModified: lastUpdatedTerms,
+            changeFrequency: 'yearly',
+            priority: 0.3,
+        },
+        {
+            url: baseUrl + '/privacy-policy',
+            lastModified: lastUpdatedPrivacy,
+            changeFrequency: 'yearly',
+            priority: 0.3,
+        },
+        {
+            url: baseUrl + '/cookies-policy',
+            lastModified: lastUpdatedCookies,
             changeFrequency: 'yearly',
             priority: 0.3,
         },
