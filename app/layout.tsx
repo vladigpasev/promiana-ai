@@ -21,8 +21,8 @@ export default function RootLayout({
   return (
     <html lang="bg">
       <body className={inter.className}>
-        <script async src="https://www.googletagmanager.com/gtag/js?id=G-WW0MLMRH6M"></script>
-        <script>
+        <Script async src="https://www.googletagmanager.com/gtag/js?id=G-WW0MLMRH6M"></Script>
+        <Script>
           {`
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
@@ -30,7 +30,7 @@ export default function RootLayout({
 
             gtag('config', 'G-WW0MLMRH6M');
           `}
-        </script>
+        </Script>
         <Navbar />
         {children}
         <Footer />
