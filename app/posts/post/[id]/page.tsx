@@ -4,9 +4,16 @@ import { notFound } from 'next/navigation'
 
 import type { Metadata, ResolvingMetadata } from 'next'
 
+export const revalidate = 3600;
+
 type Props = {
     params: { id: string }
     searchParams: { [key: string]: string | string[] | undefined }
+}
+
+async function getPostById(id:any) {
+    const { data: post } = await supabase.from('posts').select('*').eq('id', id).single();
+    return post;
 }
 
 export async function generateMetadata(
@@ -14,22 +21,13 @@ export async function generateMetadata(
     parent: ResolvingMetadata
 ): Promise<Metadata> {
     // Read route params to get the post ID
-    const id = params.id
-
-    // Fetch post data using Supabase
-    const { data: post, error } = await supabase
-        .from('posts')
-        .select('title, short_description, tags')
-        .eq('id', id)
-        .single();
-
-    if (error || !post) {
-        // Handle error or no post found
-        console.error("Error fetching post:", error);
-        //@ts-ignore
-        return (await parent); // Fallback to parent metadata
-    }
-
+    const id = params.id;
+    const post = await getPostById(id);
+    if (!post) {
+       //@ts-ignore
+       return (await parent); // Fallback to parent metadata
+   }
+    
     // Format the tags for metadata
     //@ts-ignore
     const formattedTags = post.tags.split(',').map(tag => `#${tag.trim()}`).join(', ');
@@ -39,38 +37,21 @@ export async function generateMetadata(
         title: `${post.title} | Промяна AI`,
         description: post.short_description,
         keywords: formattedTags,
+        alternates: {
+            canonical: `https://promiana-ai.com/posts/${post.id}`,
+        },
         openGraph: {
             images: (await parent).openGraph?.images || [], // Using existing images from parent metadata
         },
     }
 }
 
-
-type PostType = {
-    id: number;
-    title: string;
-    short_description: string;
-    post_text: string;
-    author: string;
-    tags: string;
-    created_at: string;
-};
-type PostDetailsProps = {
-    id: number; // Assuming id is a number
-};
-
-export const revalidate = 3600;
-
-
 async function Post({ params }: { params: { id: string } }) {
-    const { data: post } = await supabase.from('posts').select('*').eq('id', params.id).single()
-
+    const id = params.id;
+    const post = await getPostById(id);
     if (!post) {
         return notFound();
     }
-
-    const id = params.id;
-
     const formatDate = (dateString: string) => {
         const options: Intl.DateTimeFormatOptions = { year: 'numeric', month: 'long', day: 'numeric', hour: '2-digit', minute: '2-digit' };
         // Промяна на локала на 'bg-BG' за български език

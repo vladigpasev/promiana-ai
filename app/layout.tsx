@@ -3,6 +3,7 @@ import { Inter } from 'next/font/google'
 import './globals.css'
 import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
+import Script from 'next/script'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -20,6 +21,16 @@ export default function RootLayout({
   return (
     <html lang="bg">
       <body className={inter.className}>
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-WW0MLMRH6M"></script>
+        <script>
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+
+            gtag('config', 'G-WW0MLMRH6M');
+          `}
+        </script>
         <Navbar />
         {children}
         <Footer />
