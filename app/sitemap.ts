@@ -1,5 +1,7 @@
 import supabase from "@/utils/supabase";
 
+export const revalidate = 0;
+
 export default async function sitemap() {
     const baseUrl = 'https://promiana-ai.com';
     const { data: posts } = await supabase.from('posts').select('*');
