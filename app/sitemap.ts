@@ -12,7 +12,7 @@ export default async function sitemap() {
     
     const postUrls = posts?.map((post) => {
         return {
-            url: `${baseUrl}/posts/${post.id}`,
+            url: `${baseUrl}/posts/post/${post.id}`,
             lastModified: new Date(post.created_at),
             changeFrequency: 'yearly',
             priority: 0.7,
