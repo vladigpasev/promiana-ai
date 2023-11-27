@@ -11,6 +11,9 @@ export const metadata: Metadata = {
     alternates: {
         canonical: `https://promiana-ai.com/posts`,
     },
+    openGraph: {
+        images: `https://www.promiana-ai.com/opengraph-image.png`,
+    }
 }
 
 export const revalidate = 0
@@ -24,12 +27,12 @@ export default async function Posts() {
 
 
     return (
-        <div>
+        <div className='mb-10'>
             <h1 className='text-3xl pl-10 pt-10'>Скорошни статии на тема ИИ</h1>
             <div className='flex flex-grow justify-end p-10'>
                 <Link href="/posts/new" className='btn'>Създай статия</Link>
             </div>
-            <div className='grid lg:grid-cols-3 md:grid-cols-2 gap-5 px-10'>
+            <div className='grid lg:grid-cols-3 md:grid-cols-2 gap-5 px-10 items-stretch'>
                 {posts.length > 0 ? posts.map(article => (
                     <div key={article.id}>
                         <Post
@@ -38,6 +41,7 @@ export default async function Posts() {
                             description={article.short_description}
                             author={article.author}
                             tags={article.tags}
+                            image={article.post_image}
                         />
                     </div>
                 )) : <div>Няма статии</div>}

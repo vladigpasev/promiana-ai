@@ -8,6 +8,9 @@ export const metadata: Metadata = {
     alternates: {
         canonical: `https://promiana-ai.com/cookies-policy`,
     },
+    openGraph: {
+        images: `https://www.promiana-ai.com/opengraph-image.png`,
+    }
 }
 
 function CookiesPolicy() {

@@ -11,6 +11,9 @@ export const metadata: Metadata = {
     alternates: {
         canonical: `https://promiana-ai.com/posts/new`,
     },
+    openGraph: {
+      images: `https://www.promiana-ai.com/opengraph-image.png`,
+  }
 }
 
   

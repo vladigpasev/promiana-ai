@@ -8,6 +8,9 @@ export const metadata: Metadata = {
     alternates: {
         canonical: `https://promiana-ai.com/privacy-policy`,
     },
+    openGraph: {
+        images: `https://www.promiana-ai.com/opengraph-image.png`,
+    }
 }
 
 function PrivacyPolicy() {

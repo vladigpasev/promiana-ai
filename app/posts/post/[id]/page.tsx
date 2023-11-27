@@ -54,6 +54,9 @@ export async function generateMetadata(
             alternates: {
                 canonical: `https://promiana-ai.com/posts/${post.id}`,
             },
+            openGraph: {
+                images: `https://www.promiana-ai.com/opengraph-image.png`,
+            }
         }
     }
 }
