@@ -2,6 +2,8 @@ import NewPost from '@/components/NewPost'
 import type { Metadata } from 'next'
 import React from 'react'
 
+export const maxDuration = 300;
+
 export const metadata: Metadata = {
     title: 'Създаване на статии | Промяна AI',
     description: 'Създайте и публикувайте вълнуващи статии в областта на технологиите и изкуствения интелект с нашите лесни за използване инструменти за редактиране. Платформата ни е идеалното място за споделяне на иновативни идеи и научни постижения, допринасящи за технологичния прогрес.',
