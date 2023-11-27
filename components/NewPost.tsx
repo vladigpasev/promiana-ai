@@ -1,14 +1,15 @@
 "use client"
 
-import { useRouter } from 'next/navigation'; // Коригиране на импорта
+import { useRouter } from 'next/navigation';
 import React, { useState, useEffect } from 'react';
 import dynamic from 'next/dynamic';
 import { useFormState } from 'react-dom';
-import { createPost } from '@/server/postsActions'; // Проверете пътя до този импорт
+import { createPost } from '@/server/postsActions';
+import { generateArticleContent } from '@/server/postsActions';
 
-// Динамичен импорт на react-quill, за да се избегне SSR
+
 const ReactQuill = dynamic(() => import('react-quill'), { ssr: false });
-import 'react-quill/dist/quill.snow.css'; // Импорт на стиловете на Quill
+import 'react-quill/dist/quill.snow.css';
 
 function NewPost() {
     const [formData, setFormData] = useState({
@@ -27,6 +28,9 @@ function NewPost() {
     }
 
     const [state, formAction] = useFormState(createPost, initialState);
+    const [shortDescription, setShortDescription] = useState('');
+    const [postTags, setPostTags] = useState('');
+    const [isLoading, setIsLoading] = useState(false);
 
     const router = useRouter();
 
@@ -79,11 +83,48 @@ function NewPost() {
         }
     }, [state.success]);
 
+    const generateContent = async () => {
+        setIsLoading(true);
+        const content = await generateArticleContent(formData.postTitle);
+        console.log(content);
+        const [newShortDescription, newPostText, newPostTags] = content.split('|||');
+    
+        setShortDescription(newShortDescription.trim());
+        setFormData({ ...formData, postText: newPostText.trim() });
+    
+        // Check if the last character of newPostTags is a period and remove it if true
+        const trimmedTags = newPostTags.trim();
+        const tagsWithoutPeriod = trimmedTags.endsWith('.') ? trimmedTags.slice(0, -1) : trimmedTags;
+        setPostTags(tagsWithoutPeriod);
+    
+        setIsLoading(false);
+        console.log(formData)
+    };
+    
+
+    useEffect(() => {
+        setFormData(formData => ({ ...formData, shortDescription }));
+    }, [shortDescription]);
+
+    useEffect(() => {
+        setFormData(formData => ({ ...formData, postTags }));
+    }, [postTags]);
+
     return (
         <div className="p-4 bg-white">
+            {isLoading && (
+                <div className="fixed top-0 left-0 right-0 bottom-0 bg-black bg-opacity-75 flex justify-center items-center z-50">
+                    <div className="text-white text-center flex flex-col justify-center items-center p-10">
+                        <img src="https://i.gifer.com/origin/34/34338d26023e5515f6cc8969aa027bca.gif" alt="Loading..." className="w-20 mb-4" />
+                        <p className='text-lg mb-5'>Промяна AI генерира статията ти за теб.</p>
+                        <p className='text-lg'>Това може да отнеме малко време, но ти можеш да се отпуснеш на дивана, докато чакаш процесът да завърши.</p>
+                    </div>
+                </div>
+            )}
+
             <div className="mt-4 p-4 max-w-lg mx-auto bg-gray-50 rounded-xl shadow-lg">
                 <h2 className="text-2xl font-semibold text-gray-800 text-center">Създай статия</h2>
-                <button type="button" onClick={handleCancel} className="link mt-5">
+                <button type="button" onClick={handleCancel} className="link mt-5" disabled={isLoading}>
                     Отмени промените
                 </button>
                 <form className="mt-6" action={formAction}>
@@ -102,7 +143,9 @@ function NewPost() {
                             placeholder="Напиши заглавие на статия"
                         />
                     </div>
-
+                    <button type="button" onClick={generateContent} className="btn btn-secondary mb-5" disabled={isLoading}>
+                        Генерирай статия
+                    </button>
                     <div className="mb-6">
                         <label htmlFor="shortDescription" className="block text-lg font-medium text-gray-700">
                             Кратко описание
@@ -184,7 +227,7 @@ function NewPost() {
 
                     <div className="flex flex-col justify-between">
 
-                        <button type="submit" className="btn btn-primary text-white hover:text-black">
+                        <button type="submit" className="btn btn-primary text-white hover:text-black" disabled={isLoading}>
                             Създай статия
                         </button>
                     </div>
