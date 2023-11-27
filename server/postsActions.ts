@@ -142,3 +142,5 @@ export async function generateArticleContent(title) {
     console.log("Messages: " + JSON.stringify(messages));
     //return (JSON.stringify(assistant));
 }
+
+//redeploy
