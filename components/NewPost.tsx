@@ -144,7 +144,7 @@ function NewPost() {
                         />
                     </div>
                     <button type="button" onClick={generateContent} className="btn btn-secondary mb-5" disabled={isLoading}>
-                        Генерирай статия
+                        Генерирай статия (AI)
                     </button>
                     <div className="mb-6">
                         <label htmlFor="shortDescription" className="block text-lg font-medium text-gray-700">
