@@ -7,7 +7,10 @@ export const metadata: Metadata = {
     keywords: 'контакт Промяна AI, свържете се, телефонен номер, имейл адрес, връзка с екипа, обслужване на клиенти, потенциални партньорства, сътрудничество',
     openGraph: {
         images: `https://www.promiana-ai.com/opengraph-image.png`,
-    }
+    },
+    alternates: {
+        canonical: `https://promiana-ai.com/contacts`,
+    },
 }
 
 function Contacts() {

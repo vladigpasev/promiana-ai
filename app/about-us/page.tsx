@@ -7,7 +7,10 @@ export const metadata: Metadata = {
     keywords: 'екип Промяна AI, за нас, млади технологични таланти, изкуствен интелект, развитие на AI, технологична общност, визия и мисия, Владимир Пасев, Рая Такорова, Константин Крумов, Ива Иванова',
     openGraph: {
         images: `https://www.promiana-ai.com/opengraph-image.png`,
-    }
+    },
+    alternates: {
+        canonical: `https://promiana-ai.com/about-us`,
+    },
 }
 
 function AboutUs() {

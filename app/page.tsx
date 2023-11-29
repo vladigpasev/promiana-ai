@@ -9,7 +9,10 @@ export const metadata: Metadata = {
   keywords: 'изкуствен интелект, технологични новини, иновации в технологиите, анализи на технологии, технологичен портал, бъдещето на технологиите, технологична общност',
   openGraph: {
     images: `https://www.promiana-ai.com/opengraph-image.png`,
-  }
+  },
+  alternates: {
+    canonical: `https://promiana-ai.com`,
+  },
 }
 function Home() {
   return (

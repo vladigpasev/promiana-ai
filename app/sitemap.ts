@@ -26,7 +26,8 @@ export default async function sitemap() {
     const lastUpdatedCookies = new Date('2023-11-26T20:31:29'); // Modify as needed
 
     const lastUpdatedAboutUs = new Date('2023-11-28T11:30:00'); // Modify as needed
-    const lastUpdatedContacts = new Date('2023-11-28T11:30:00'); 
+    const lastUpdatedContacts = new Date('2023-11-28T11:30:00');
+    const lastUpdatedSources = new Date('2023-11-29T20:03:00'); 
 
     return [
         {
@@ -76,6 +77,12 @@ export default async function sitemap() {
             lastModified: lastUpdatedContacts,
             changeFrequency: 'yearly',
             priority: 0.5, // Adjust the priority as per the importance of the page
+        },
+        {
+            url: baseUrl + '/sources',
+            lastModified: lastUpdatedSources,
+            changeFrequency: 'yearly',
+            priority: 0.3, // Adjust the priority as per the importance of the page
         },
         ...postUrls,
     ]

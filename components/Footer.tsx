@@ -16,6 +16,7 @@ function Footer() {
                     <header className="footer-title">Компания</header>
                     <Link href="/about-us" className="link link-hover">За нас</Link>
                     <Link href="/contacts" className="link link-hover">Контакти</Link>
+                    <Link href="/sources" className="link link-hover">Източници</Link>
                 </nav>
                 <nav>
                     <header className="footer-title">Документи</header>
