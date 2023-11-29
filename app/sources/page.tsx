@@ -29,6 +29,16 @@ function Sources() {
                     <br />
                     <li><a href="https://www.europarl.europa.eu/news/bg/headlines/society/20200918STO87404/izkustven-intelekt-vzmozhnosti-i-zaplakhi?&at_campaign=20234-Digital&at_medium=Google_Ads&at_platform=Search&at_creation=RSA&at_goal=TR_G&at_audience=%D0%B8%D0%B7%D0%BA%D1%83%D1%81%D1%82%D0%B2%D0%B5%D0%BD%20%D0%B8%D0%BD%D1%82%D0%B5%D0%BB%D0%B5%D0%BA%D1%82&at_topic=Artificial_intelligence&at_location=BG&gclid=Cj0KCQiAjMKqBhCgARIsAPDgWly6ch_eIgLj8LVfikR95TmJ69Lds9ORiJDKBa5RkLP_AM2jXd3nj9QaAoQQEALw_wcB" className="link break-words">https://www.europarl.europa.eu/news/bg/headlines/society/20200918STO87404/izkustven-intelekt-vzmozhnosti-i-zaplakhi?&at_campaign=20234-Digital&at_medium=Google_Ads&at_platform=Search&at_creation=RSA&at_goal=TR_G&at_audience=%D0%B8%D0%B7%D0%BA%D1%83%D1%81%D1%82%D0%B2%D0%B5%D0%BD%20%D0%B8%D0%BD%D1%82%D0%B5%D0%BB%D0%B5%D0%BA%D1%82&at_topic=Artificial_intelligence&at_location=BG&gclid=Cj0KCQiAjMKqBhCgARIsAPDgWly6ch_eIgLj8LVfikR95TmJ69Lds9ORiJDKBa5RkLP_AM2jXd3nj9QaAoQQEALw_wcB</a></li>
                     <br />
+                    <li><a href="https://www.europarl.europa.eu/news/bg/headlines/society/20200827STO85804/izkustveniiat-intelekt-kakvo-predstavliava-i-kak-se-izpolzva" className="link break-words">https://www.europarl.europa.eu/news/bg/headlines/society/20200827STO85804/izkustveniiat-intelekt-kakvo-predstavliava-i-kak-se-izpolzva</a></li>
+                    <br />
+                    <li><a href="https://megavselena.bg/predimstva-i-nedostatytsi-na-izkustveniya-intelekt/" className="link break-words">https://megavselena.bg/predimstva-i-nedostatytsi-na-izkustveniya-intelekt/</a></li>
+                    <br />
+                    <li><a href="https://mpost.io/bg/what-are-the-advantages-and-disadvantages-of-artificial-intelligence-in-writing/" className="link break-words">https://mpost.io/bg/what-are-the-advantages-and-disadvantages-of-artificial-intelligence-in-writing/</a></li>
+                    <br />
+                    <li><a href="https://technews.bg/article-152916.html" className="link break-words">https://technews.bg/article-152916.html</a></li>
+                    <br />
+                    <li><a href="https://urbn.dir.bg/columnists/robotnicheskata-partiya-za-izkustveniya-intelekt-i-politikata" className="link break-words">https://urbn.dir.bg/columnists/robotnicheskata-partiya-za-izkustveniya-intelekt-i-politikata</a></li>
+                    <br />
                     <li className='break-words'><span>И разбира се - </span><a href="https://chat.openai.com/chat" className="link break-words">https://chat.openai.com/chat</a></li>
                 </ul>
         </div>
