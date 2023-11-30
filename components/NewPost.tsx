@@ -139,7 +139,7 @@ function NewPost() {
                             value={formData.postTitle}
                             onChange={handleChange}
                             required
-                            className="mt-1 block w-full px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary"
+                            className="mt-1 block w-full px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary text-black"
                             placeholder="Напиши заглавие на статия"
                         />
                     </div>
@@ -156,7 +156,7 @@ function NewPost() {
                             value={formData.shortDescription}
                             onChange={handleChange}
                             required
-                            className="mt-1 block w-full px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary"
+                            className="mt-1 block w-full px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary text-black"
                             placeholder="Напиши кратко описание"
                         />
                     </div>
@@ -170,6 +170,7 @@ function NewPost() {
                             value={formData.postText}
                             onChange={handleQuillChange}
                             placeholder="Напиши текст на статия"
+                            className='text-black'
                         />
                         {/* Скрито поле, което държи стойността на postText */}
                         <input
@@ -189,7 +190,7 @@ function NewPost() {
                             onChange={handleChange}
                             value={formData.postImage}
                             placeholder='https://google.com/images'
-                            className="mt-1 block w-full px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary"
+                            className="text-black mt-1 block w-full px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary"
                         />
                     </div>
 
@@ -204,7 +205,7 @@ function NewPost() {
                             value={formData.authorName}
                             onChange={handleChange}
                             required
-                            className="mt-1 block w-full px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary"
+                            className="text-black mt-1 block w-full px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary"
                             placeholder="Напиши име на автор"
                         />
                     </div>
@@ -220,7 +221,7 @@ function NewPost() {
                             value={formData.postTags}
                             onChange={handleChange}
                             required
-                            className="mt-1 block w-full px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary"
+                            className="text-black mt-1 block w-full px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary"
                             placeholder="Напиши етикети, разделени със запетаи"
                         />
                     </div>
